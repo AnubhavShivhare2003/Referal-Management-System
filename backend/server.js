@@ -6,10 +6,11 @@ const candidateRoutes = require('./routes/candidate.routes');
 const cors=require('cors')
 
 
-app.use(cors())
-const app=express();
-app.use(express.json());
 
+const app=express();
+
+app.use(express.json());
+app.use(cors())
 app.use('/auth', authRoutes);
 app.use('/candidates', candidateRoutes);
 
