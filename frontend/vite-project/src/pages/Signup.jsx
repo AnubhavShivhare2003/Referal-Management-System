@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
@@ -13,7 +13,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/auth/signup', form);
+      await api.post('/auth/signup', form);
       alert('User registered. Please login.');
       navigate('/login');
     } catch (err) {
