@@ -1,5 +1,9 @@
 # Referral Management System
 
+## Live Demo
+- **Frontend:** [https://referal-management-system.vercel.app/](https://referal-management-system.vercel.app/)
+- **Backend:** [https://referal-management-system-2pby.onrender.com](https://referal-management-system-2pby.onrender.com)
+
 A full-stack web application for managing employee referrals, built with React (Vite) for the frontend and Node.js/Express for the backend.
 
 ## Features
@@ -66,4 +70,4 @@ Referal Management System/
 ```
 
 ## License
-This project is for educational/demo purposes.
+This project is for educational/demo purposes. 
