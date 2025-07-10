@@ -5,8 +5,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/auth': 'http://localhost:3000',
-      '/candidates': 'http://localhost:3000',
+      '/auth': 'https://referal-management-system-2pby.onrender.com',
+      '/candidates': 'https://referal-management-system-2pby.onrender.com',
     }
   }
 })
