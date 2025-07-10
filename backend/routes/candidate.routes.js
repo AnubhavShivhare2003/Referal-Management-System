@@ -12,7 +12,7 @@ const {
 
 router.post('/', authenticate, authorizeRoles('admin', 'superadmin'), multer.single('resume'), createCandidate);
 router.get('/', authenticate, getCandidates);
-router.put('/:id/status', authenticate, authorizeRoles('superadmin'), updateStatus);
+router.put('/:id/status', authenticate, authorizeRoles('admin', 'superadmin'), updateStatus);
 router.delete('/:id', authenticate, authorizeRoles('superadmin'), deleteCandidate);
 
 module.exports = router;

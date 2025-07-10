@@ -3,11 +3,11 @@ const connectDb=require("./config/db")
 require('dotenv').config();
 const authRoutes = require('./routes/auth.routes');
 const candidateRoutes = require('./routes/candidate.routes');
-const cors=require('cors')
+
 
 const app=express();
 app.use(express.json());
-app.use(cors())
+
 app.use('/auth', authRoutes);
 app.use('/candidates', candidateRoutes);
 

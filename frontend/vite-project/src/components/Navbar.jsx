@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const isLoggedIn = Boolean(localStorage.getItem('token'));
+  const [isLoggedIn, setIsLoggedIn] = useState(Boolean(localStorage.getItem('token')));
+
+  useEffect(() => {
+    const handleStorage = () => setIsLoggedIn(Boolean(localStorage.getItem('token')));
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    setIsLoggedIn(false);
     window.location.reload();
   };
 
