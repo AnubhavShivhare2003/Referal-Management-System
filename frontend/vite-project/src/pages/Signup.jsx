@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from '../api';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
@@ -13,7 +13,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/auth/signup', form);
+      await axios.post('https://referal-management-system-2pby.onrender.com/auth/signup', form);
       alert('User registered. Please login.');
       navigate('/login');
     } catch (err) {

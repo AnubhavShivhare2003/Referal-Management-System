@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from '../api';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -14,7 +14,7 @@ const Dashboard = () => {
       return;
     }
     const fetchCandidates = async () => {
-      const res = await api.get('/candidates', {
+      const res = await axios.get('https://referal-management-system-2pby.onrender.com/candidates', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCandidates(res.data);
@@ -25,7 +25,7 @@ const Dashboard = () => {
   const updateStatus = async (id, newStatus) => {
     const token = localStorage.getItem('token');
     try {
-      await api.put(`/candidates/${id}/status`, { status: newStatus }, {
+      await axios.put(`https://referal-management-system-2pby.onrender.com/candidates/${id}/status`, { status: newStatus }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCandidates(prev => prev.map(c => c._id === id ? { ...c, status: newStatus } : c));

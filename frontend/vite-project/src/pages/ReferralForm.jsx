@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from '../api';
+import axios from 'axios';
 
 const ReferralForm = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', jobTitle: '' });
@@ -17,7 +17,7 @@ const ReferralForm = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await api.post('/candidates', formData, {
+      await axios.post('https://referal-management-system-2pby.onrender.com/candidates', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Candidate referred successfully');

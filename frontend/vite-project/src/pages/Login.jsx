@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from '../api';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post('/auth/login', { email, password });
+      const res = await axios.post('https://referal-management-system-2pby.onrender.com/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
       alert('Login successful');
       navigate('/');
